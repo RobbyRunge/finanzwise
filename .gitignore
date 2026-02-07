@@ -1,0 +1,64 @@
+# ===================================
+# FinanzWise - Git Ignore
+# ===================================
+
+# ===================================
+# Personal & Secret Files
+# ===================================
+COMMANDS.md
+.env.local
+.env.*.local
+*secret*
+*password*
+
+# ===================================
+# Backend (Symfony)
+# ===================================
+/backend/vendor/
+/backend/var/
+/backend/.env.local
+/backend/.env.*.local
+/backend/public/bundles/
+/backend/composer.lock
+
+# ===================================
+# Frontend (React) - kommt später
+# ===================================
+/frontend/node_modules/
+/frontend/dist/
+/frontend/build/
+/frontend/.env.local
+/frontend/.env.*.local
+
+# ===================================
+# IDE & Editor
+# ===================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# ===================================
+# OS
+# ===================================
+Thumbs.db
+Desktop.ini
+
+# ===================================
+# Logs & Temp
+# ===================================
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.eslintcache
+
+# ===================================
+# Database
+# ===================================
+*.sql
+*.sqlite
+*.db
