@@ -31,7 +31,7 @@ class Transaction
     private ?string $description = null;
 
     #[ORM\Column(type: 'date')]
-    private ?\DateTimeImmutable $date = null;
+    private ?\DateTime $date = null;
 
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
@@ -39,7 +39,7 @@ class Transaction
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
-        $this->date = new \DateTimeImmutable();
+        $this->date = new \DateTime();
     }
 
     public function getId(): ?int
@@ -107,12 +107,12 @@ class Transaction
         return $this;
     }
 
-    public function getDate(): ?\DateTimeImmutable
+    public function getDate(): ?\DateTime
     {
         return $this->date;
     }
 
-    public function setDate(\DateTimeImmutable $date): static
+    public function setDate(\DateTime $date): static
     {
         $this->date = $date;
 

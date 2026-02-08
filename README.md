@@ -80,6 +80,68 @@ Transaction (Income/Expenses)
 - User → Accounts (1:n)
 - Account → Transactions (1:n)
 
+## 🔌 API Endpoints
+
+### User Endpoints
+```
+GET    /api/users           - Get all users
+GET    /api/users/{id}      - Get single user
+POST   /api/users           - Create user
+PUT    /api/users/{id}      - Update user
+DELETE /api/users/{id}      - Delete user
+```
+
+### Account Endpoints
+```
+GET    /api/accounts                - Get all accounts
+GET    /api/accounts/{id}           - Get single account
+POST   /api/accounts                - Create account
+PUT    /api/accounts/{id}           - Update account
+DELETE /api/accounts/{id}           - Delete account
+GET    /api/accounts/user/{userId}  - Get all accounts for a user (with total balance)
+```
+
+### Transaction Endpoints
+```
+GET    /api/transactions                     - Get all transactions
+GET    /api/transactions/{id}                - Get single transaction
+POST   /api/transactions                     - Create transaction
+PUT    /api/transactions/{id}                - Update transaction
+DELETE /api/transactions/{id}                - Delete transaction
+GET    /api/transactions/account/{accountId} - Get transactions for account (with summary)
+GET    /api/transactions/type/{type}         - Filter by type (income/expense)
+```
+
+**Example Request (Create Transaction):**
+```bash
+POST /api/transactions
+Content-Type: application/json
+
+{
+  "accountId": 1,
+  "amount": "100.50",
+  "type": "income",
+  "category": "Salary",
+  "description": "Monthly salary",
+  "date": "2026-02-06"
+}
+```
+
+**Example Response (Account Summary):**
+```json
+{
+  "accountId": 1,
+  "accountName": "Checking Account",
+  "transactions": [...],
+  "summary": {
+    "totalIncome": "2500.00",
+    "totalExpense": "925.50",
+    "balance": "1574.50",
+    "count": 3
+  }
+}
+```
+
 ## ✨ Features (MVP)
 
 ### ✅ Implemented
@@ -88,9 +150,13 @@ Transaction (Income/Expenses)
 - [x] Doctrine Entities (User, Account, Transaction)
 - [x] Foreign Key Constraints & Relations
 - [x] Database Migrations
+- [x] REST API Endpoints (CRUD) - 18 Endpoints
+- [x] User Management API
+- [x] Account Management API
+- [x] Transaction Management API
+- [x] Financial Summaries (Income/Expense/Balance)
 
 ### 🔄 In Progress
-- [ ] REST API Endpoints (CRUD)
 - [ ] JWT Authentication
 - [ ] React Frontend
 - [ ] Dashboard with Charts
